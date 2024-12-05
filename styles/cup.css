@@ -1,0 +1,108 @@
+.cup {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cup:hover {
+  transform: scale(1.02);
+}
+
+.cup-body {
+  width: 220px;
+  height: 260px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  border-radius: 20px 20px 110px 110px;
+  position: relative;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    inset 0 -15px 35px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cup-body::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  height: 90px;
+  background: linear-gradient(135deg, #ffb88c 0%, #de6262 100%);
+  border-radius: 10px;
+  opacity: 0.95;
+  animation: coffee-wave 4s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(222, 98, 98, 0.3);
+}
+
+.cup-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  transform: skewX(-15deg);
+  animation: shine 4s ease-in-out infinite;
+}
+
+.cup-handle {
+  width: 70px;
+  height: 130px;
+  background: transparent;
+  border: 24px solid #ffffff;
+  border-radius: 40px;
+  position: absolute;
+  right: -70px;
+  top: 45px;
+  box-shadow: 
+    3px 0 25px rgba(0, 0, 0, 0.15),
+    inset -3px 0 15px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg);
+  animation: handle-shadow 6s ease-in-out infinite;
+}
+
+.steam {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  filter: url(#steam-blur);
+  pointer-events: none;
+}
+
+.steam-particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: steam-rise 3s infinite;
+  filter: blur(8px);
+}
+
+.steam-particle:nth-child(1) { width: 45px; height: 45px; left: 10px; animation-delay: 0.2s; }
+.steam-particle:nth-child(2) { width: 35px; height: 35px; left: 50px; animation-delay: 0.6s; }
+.steam-particle:nth-child(3) { width: 40px; height: 40px; left: 90px; animation-delay: 0.1s; }
+.steam-particle:nth-child(4) { width: 32px; height: 32px; left: 30px; animation-delay: 0.4s; }
+.steam-particle:nth-child(5) { width: 38px; height: 38px; left: 70px; animation-delay: 0.8s; }
+
+.cup-shine {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  filter: blur(3px);
+  animation: shine-dot 4s ease-in-out infinite;
+}
